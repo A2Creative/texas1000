@@ -1,0 +1,89 @@
+<head>
+	<script src='https://cdn.plot.ly/plotly-3.0.1.min.js'></script>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <script>
+      var day = ['OCT.1', 'OCT.2', 'OCT.3', 'OCT.4', 'OCT.5'];
+      var miles = [35, 38, 43, 40, 36];
+      
+      var trace1 = {
+    x: miles,
+    y: day,
+    type: 'bar',
+    width: .75,
+    orientation: 'h',
+    text: day, 
+    textposition: 'inside',
+    insidetextanchor: 'start',
+    textfont: {
+       color: 'white'
+    },
+    hoverinfo: 'none',
+    marker: {
+        color: '#FFFFF',
+        cornerradius: 12
+    }
+};
+
+var trace2 = {
+    x: miles,
+    y: day,
+    type: 'bar',
+    width: .75,
+    orientation: 'h',
+    text: miles.map(m => `${m}mi`), 
+    textposition: 'inside',
+    insidetextanchor: 'end',
+    textfont: {
+        color: 'white'
+    },
+    hoverinfo: 'none',
+    marker: {
+        color: 'rgba(0,0,0,0)', 
+        cornerradius: 12,
+        line: {
+            
+        }
+    }
+};
+
+
+
+var layout = {
+    title: {
+        text: '',
+        x: 0.5,
+        xanchor: 'center'
+    },
+    paper_bgcolor: "rgba(0,0,0,0",
+     plot_bgcolor: "rgba(0,0,0,0)",
+    xaxis: {
+        visible: false
+       
+       
+    },
+    yaxis: {
+        title: '',
+        showgrid: false,
+        showticklabels: false,
+        tickfont: {
+            size: 12
+        },
+        autorange: 'reversed' 
+    },
+    margin: {
+        l: 100,
+        r: 50,
+        t: 80,
+        b: 50
+    },
+    showlegend: false,
+    barmode: 'overlay' 
+};
+
+
+Plotly.newPlot('chart', [trace1, trace2], layout);
+    </script>
+</body>
